@@ -94,7 +94,12 @@ def info(bot, update):
 #creating a bot object
 # recives update from telegram sever
 bot =Bot(TOKEN)
-bot.set_webhook("https://507cea7d1d4a.ngrok.io/"+TOKEN)
+try:
+    bot.set_webhook("https://vhug.herokuapp.com/" + TOKEN)
+    time.sleep(5)
+except Exception as e:
+    print(e)
+
 #dispatcher handels responses to what input is provided on updater.
 dp=Dispatcher(bot,None)
 dp.add_handler(CommandHandler("start",start))

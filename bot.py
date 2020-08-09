@@ -32,7 +32,7 @@ logging.basicConfig(format='%(asctime)s - %(name)%s - %(levelname)s - %(message)
 logger = logging.getLogger(__name__)
 
 
-TOKEN=""
+TOKEN="1245399665:AAFbc5ySlMhsVjsuPTlvIHIihjwmiPWAhX8"
 
 #creating a flask app object
 app= Flask(__name__)
@@ -91,19 +91,19 @@ def info(bot, update):
                      reply_markup=ReplyKeyboardMarkup(keyboard=topics_keyboard, one_time_keyboard=True))
 
 
+#creating a bot object
+# recives update from telegram sever
+bot =Bot(TOKEN)
+bot.set_webhook("https://507cea7d1d4a.ngrok.io/"+TOKEN)
+#dispatcher handels responses to what input is provided on updater.
+dp=Dispatcher(bot,None)
+dp.add_handler(CommandHandler("start",start))
+dp.add_handler(CommandHandler("help",help_))
+dp.add_handler(CommandHandler("info",info))
+dp.add_handler(MessageHandler(Filters.text,reply_text))
+dp.add_handler(MessageHandler(Filters.sticker,echo_sticker))
+dp.add_error_handler(error)
 if __name__ == "__main__":
-	#creating a bot object
-	# recives update from telegram sever
-	bot =Bot(TOKEN)
-	bot.set_webhook("https://507cea7d1d4a.ngrok.io/"+TOKEN)
-	#dispatcher handels responses to what input is provided on updater.
-	dp=Dispatcher(bot,None)
-	dp.add_handler(CommandHandler("start",start))
-	dp.add_handler(CommandHandler("help",help_))
-	dp.add_handler(CommandHandler("info",info))
-	dp.add_handler(MessageHandler(Filters.text,reply_text))
-	dp.add_handler(MessageHandler(Filters.sticker,echo_sticker))
-	dp.add_error_handler(error)
 	app.run(port=8443)
 	
 

@@ -95,7 +95,7 @@ def info(bot, update):
 # recives update from telegram sever
 bot =Bot(TOKEN)
 try:
-    bot.set_webhook("https://vhugg.herokuapp.com/" + TOKEN)
+    bot.set_webhook("https://vhug.herokuapp.com/" + TOKEN)
     time.sleep(5)
 except Exception as e:
     print(e)

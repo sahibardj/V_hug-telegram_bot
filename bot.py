@@ -32,7 +32,7 @@ logging.basicConfig(format='%(asctime)s - %(name)%s - %(levelname)s - %(message)
 logger = logging.getLogger(__name__)
 
 
-TOKEN="1245399665:AAFbc5ySlMhsVjsuPTlvIHIihjwmiPWAhX8"
+TOKEN=""
 
 #creating a flask app object
 app= Flask(__name__)
